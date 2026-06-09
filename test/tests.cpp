@@ -93,7 +93,6 @@ TEST(EarthRopeTest, ZeroRadius) {
     EXPECT_NEAR(gap, expected, EPS);
 }
 
-// ---------- Тесты для задачи "Бассейн" ----------
 TEST(PoolCostsTest, DefaultValues) {
     auto [concrete, fence] = poolCosts(3.0, 1.0, 1000.0, 2000.0);
     double outer = 4.0;
@@ -135,4 +134,27 @@ TEST(PoolCostsTest, VeryNarrowPath) {
     double expectedFence = 2.0 * M_PI * outer * 2000.0;
     EXPECT_NEAR(concrete, expectedConcrete, EPS);
     EXPECT_NEAR(fence, expectedFence, EPS);
+}
+
+TEST(CircleTest, GetMethodsAfterSetRadius) {
+    Circle c(1.0);
+    c.setRadius(2.5);
+    EXPECT_NEAR(c.getRadius(), 2.5, EPS);
+    EXPECT_NEAR(c.getFerence(), 2.0 * M_PI * 2.5, EPS);
+    EXPECT_NEAR(c.getArea(), M_PI * 2.5 * 2.5, EPS);
+}
+
+TEST(CircleTest, SetRadiusUpdatesFerenceAndArea) {
+    Circle c(2.0);
+    double oldFerence = c.getFerence();
+    double oldArea = c.getArea();
+    c.setRadius(3.0);
+    EXPECT_NE(c.getFerence(), oldFerence);
+    EXPECT_NE(c.getArea(), oldArea);
+}
+
+TEST(EarthRopeTest, VeryLargeEarthRadius) {
+    double gap = earthRopeGap(1e9);   
+    double expected = 1.0 / (2.0 * M_PI);
+    EXPECT_NEAR(gap, expected, EPS);
 }
