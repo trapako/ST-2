@@ -1,9 +1,6 @@
 // Copyright 2025 UNN-CS
 #include "circle.h"
 #include "tasks.h"
-
-#include <cmath>
-#include <utility>
 #include <gtest/gtest.h>
 
 #ifndef M_PI
