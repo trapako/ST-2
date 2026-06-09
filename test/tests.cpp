@@ -2,6 +2,7 @@
 #include "circle.h"
 #include "tasks.h"
 
+#include <stddef.h>
 #include <gtest/gtest.h>
 
 #ifndef M_PI
