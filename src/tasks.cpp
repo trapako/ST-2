@@ -17,8 +17,7 @@ double earthRopeGap(double earthRadiusKm) {
 
 std::pair<double, double> poolCosts(
     double poolRadius, double pathWidth,
-    double concreteCostPerSqM, double fenceCostPerM)
-{
+    double concreteCostPerSqM, double fenceCostPerM) {
     const double outerRadius = poolRadius + pathWidth;
     const double pathArea = M_PI * (outerRadius * outerRadius
                                     - poolRadius * poolRadius);
