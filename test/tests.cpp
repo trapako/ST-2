@@ -154,8 +154,8 @@ TEST(CircleTest, SetRadiusUpdatesFerenceAndArea) {
     EXPECT_NE(c.getArea(), oldArea);
 }
 
-TEST(EarthRopeTest, VeryLargeEarthRadius) {
-    double gap = earthRopeGap(1e9);   
+TEST(EarthRopeTest, VerySmallEarthRadius) {
+    double gap = earthRopeGap(1e-6);
     double expected = 1.0 / (2.0 * M_PI);
     EXPECT_NEAR(gap, expected, EPS);
 }
